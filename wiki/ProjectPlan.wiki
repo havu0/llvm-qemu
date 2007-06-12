@@ -1,7 +1,5 @@
 #summary The project plan for this project.
 
-NOTE: this will be updated soon
-
 =Benefits:=
 QEMU will largely benefit from this project through an expected increase in speed, while remaining portable.
 Through this project LLVM will effectively get front ends for all target architectures supported by QEMU (at the moment these are x86, AR
@@ -39,7 +37,6 @@ Week 9, 10:
      * write final documentation
 Week 11, 12:
      * time buffer to deal with unexpected events
-
 
 
 
