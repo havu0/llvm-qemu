@@ -1,0 +1,18 @@
+#summary The status of the project, including weekly status reports.
+
+= Week 1,2 =
+  * read lots of qemu src and LLVM API docs
+  * compiled op.c to LLVM IR
+  * wrote simple prototype which:
+    * loads op.bc
+    * resolves declarations in op.bc
+    * creates a TB function
+    * adds calls to micro ops
+    * fills in parameters
+    * inlines function calls
+    * compiles the TB function to machine code with the JIT
+  * started work on llvm-dyngen which at the moment:
+    * handles micro ops with parameters
+
+= Week 3 =
+the goal of week 3 is to get llvm-dyngen working for all micro ops
