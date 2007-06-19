@@ -1,4 +1,4 @@
-l#summary The status of the project, including weekly status reports.
+#summary The status of the project, including weekly status reports.
 
 = Week 1,2 =
   * read lots of qemu src and LLVM API docs
