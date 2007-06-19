@@ -1,4 +1,4 @@
-#summary The status of the project, including weekly status reports.
+l#summary The status of the project, including weekly status reports.
 
 = Week 1,2 =
   * read lots of qemu src and LLVM API docs
@@ -15,4 +15,21 @@
     * handles micro ops with parameters
 
 = Week 3 =
-the goal of week 3 is to get llvm-dyngen working for all micro ops
+  * integrated llvm-dyngen into qemu:
+    * changes to the qemu Makefiles
+    * set up proper linking between C++ (llvm-dyngen, llvm libs) and C (qemu) parts
+    * changes to functions which rely on the compiled micro op size (this is no longer possible with LLVM IR micro ops)
+  * improved llvm-dyngen:
+    * added support for the GOTO_LABEL_PARAM macro (this is used for jumps between individual micro ops of a translation block, e.g. it is used to implement the conditional execution emulation for the ARM architecture), this required changes to all micro ops which use GOTO_LABEL_PARAM
+    * fixed missing parameters of memory access micro ops
+    * added code generation through LLVM JIT
+    * added code which properly registers global symbols with the JIT
+    * added inlining of micro ops (doubles execution speed)
+  * results:
+    * llvm-qemu is capable of running ARM linux binaries in user mode emulation
+
+= Week 4 =
+TODO list:
+  * run a benchmark with llvm-qemu (nbench)
+  * get full system simulation working with llvm-qemu
+  * implement a hotspot-like mechanism
