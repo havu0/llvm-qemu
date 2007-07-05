@@ -43,6 +43,19 @@
   * implemented very simple hotspot-like mechanism which only applies optimizations to blocks which are executed a certain number of times, the other blocks are JITed directly without doing any further optimizations
 
 = Week 5 =
+  * implemented interpreter for qemu micro ops (to use as a "fast" pass for blocks with few executions, e.g. blocks which aren't hot spots)
+    * created the interpreter version of dyngen:
+      * inserts direct calls to micro ops instead of a memcpy of the micro op
+      * parameters are kept in global variables and are fetched from the parameter array
+      * micro ops which change control flow return a value which indicates the destination of the jump, the appropriate code which performs the jump is added
+  * integrated interpreter into llvm-qemu, using it for blocks whose execution count is below a certain threshold
+  * added code which prints a table of the execution count distribution of the executed blocks
+  * results:
+     * linux boot with llvm-qemu: 0:25 min
+
+= Week 6 =
 TODO list:
-  * implement interpreter for qemu micro ops (to use as a "fast" pass for blocks with few executions, e.g. blocks which aren't hot spots)
-  * (fix full system emulation (linux boot hangs when entering user space))
+  * add support for translation block chaining to llvm-qemu
+  * try to speed up the JIT process, e.g. by choosing a different register allocator
+  * (low priority: fix full system emulation (linux boot hangs when entering user space))
+
