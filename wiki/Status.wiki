@@ -100,11 +100,9 @@
 || 4m35.349s    || 5m39.697s                         || 13m50.697s          ||
 
 = Week 12 =
-TODO:
-  * implement hot path detection feature, to create "super" blocks out of a set of basic blocks belonging to a hot path
-  * something like this: http://www.itee.uq.edu.au/~cristina/wbt00.ps
-
-
+  * partially implemented hot path detection feature, to create "super" blocks out of a set of basic blocks belonging to a hot path
+  * basically the detection of hot paths works, the merging of the basic blocks into a super block is missing, including the interfacing from super block to other basic blocks
+  * the goal is to implement something like this: http://www.itee.uq.edu.au/~cristina/wbt00.ps
 
 
 
